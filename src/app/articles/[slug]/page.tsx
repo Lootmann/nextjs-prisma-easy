@@ -38,12 +38,20 @@ export default async function Article({
       <div>
         <h3 className="mb-4 text-xl">Comments</h3>
 
-        {comments.map((comment) => (
-          <div>
-            <p>{comment.commentedBy.name}</p>
-            <p>{comment.content}</p>
-          </div>
-        ))}
+        <div className="flex flex-col gap-4">
+          {comments.map((comment) => (
+            <div
+              className="flex gap-4 items-baseline border-b border-zinc-600 pb-1"
+              key={comment.id}
+            >
+              <span className="bg-orange-800 py-1 px-2 rounded-sm">
+                {comment.commentedBy.name}
+              </span>
+
+              <p className="text-xl">{comment.content}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
