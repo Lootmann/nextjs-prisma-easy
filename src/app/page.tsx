@@ -1,19 +1,14 @@
 import { getAllArticles } from "@/apis/articles";
+import { ArticleList } from "./articles/ArticleList";
 
 export default async function Home() {
   const articles = await getAllArticles();
 
   return (
-    <div>
+    <div className="flex flex-col gap-6">
       <h2>Hello Nextjs World :D</h2>
 
-      <div>
-        <ul>
-          {articles.map((article) => (
-            <li key={article.id}>{article.title}</li>
-          ))}
-        </ul>
-      </div>
+      <ArticleList articles={articles} />
     </div>
   );
 }
