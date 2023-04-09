@@ -6,7 +6,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h2>Hello Nextjs World :D</h2>
+      <h2 className="text-2xl">Hello Nextjs World :D</h2>
 
       <ArticleList articles={articles} />
     </div>
