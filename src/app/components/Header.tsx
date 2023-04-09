@@ -12,7 +12,7 @@ export function Header() {
 
       <p>
         <Link
-          href="/"
+          href="/articles/new"
           className="text-2xl bg-orange-900 hover:bg-orange-700 p-2 rounded-md"
         >
           Write
