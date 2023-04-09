@@ -3,7 +3,7 @@ import React from "react";
 
 export function Header() {
   return (
-    <div className="flex justify-between gap-8 border-b border-zinc-700 p-4 px-20">
+    <div className="flex justify-between gap-8 shadow-xl p-4 px-20">
       <h1>
         <Link href="/" className="text-2xl">
           Articles
