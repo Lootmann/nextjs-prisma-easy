@@ -18,6 +18,7 @@ model User {
   id       Int       @id @default(autoincrement())
   name     String
   articles Article[]
+  Comment  Comment[]
 
   @@map("users")
 }
@@ -37,10 +38,12 @@ model Article {
 }
 
 model Comment {
-  id        Int     @id @default(autoincrement())
-  content   String
-  Article   Article @relation(fields: [articleId], references: [id])
-  articleId Int
+  id          Int     @id @default(autoincrement())
+  content     String
+  Article     Article @relation(fields: [articleId], references: [id])
+  articleId   Int
+  commentedBy User    @relation(fields: [authorId], references: [id])
+  authorId    Int
 
   @@map("comments")
 }
