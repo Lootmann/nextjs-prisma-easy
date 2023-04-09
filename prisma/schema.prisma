@@ -10,9 +10,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//
+// User : Article = 1 : n
+// Article : Comment = 1 : n
+//
 model User {
-  id   Int    @id @default(autoincrement())
-  name String
+  id       Int       @id @default(autoincrement())
+  name     String
+  articles Article[]
 
   @@map("users")
+}
+
+model Article {
+  id        Int       @id @default(autoincrement())
+  title     String
+  content   String
+  slug      String
+  createdAt DateTime
+  updatedAt DateTime
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  Int
+  comments  Comment[]
+
+  @@map("articles")
+}
+
+model Comment {
+  id        Int     @id @default(autoincrement())
+  content   String
+  Article   Article @relation(fields: [articleId], references: [id])
+  articleId Int
+
+  @@map("comments")
 }
