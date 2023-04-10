@@ -1,6 +1,26 @@
-import { getArticleBySlug } from "@/apis/articles";
-import { getCommentsByArticleId } from "@/apis/comments";
+import { Article, Comment } from "@prisma/client";
+import { notFound } from "next/navigation";
 import React from "react";
+
+async function getArticleBySlug(slug: string) {
+  const res = await fetch(`http://localhost:3000/api/articles/${slug}`);
+  if (!res.ok) notFound();
+
+  const data = await res.json();
+  const article = data.article;
+
+  if (article === null) notFound();
+  return article as Article;
+}
+
+async function getCommentsByArticleId(articleId: Number) {
+  const res = await fetch(`http://localhost:3000/api/comments/${articleId}`);
+  if (!res.ok) notFound();
+
+  const data = await res.json();
+  const comments = data.comments;
+  return comments as Comment[];
+}
 
 export default async function Article({
   params,
