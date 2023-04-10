@@ -15,3 +15,7 @@ npm run dev
 ## Links
 
 - [API Router Handlers](https://beta.nextjs.org/docs/routing/route-handlers)
+
+## TODO
+
+- [ ] api, apis 使い方おかしくね
