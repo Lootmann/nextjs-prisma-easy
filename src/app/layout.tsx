@@ -29,7 +29,7 @@ export default function RootLayout({
         <Header />
 
         {/* Header height and border px */}
-        <main className="h-[calc(100vh-4rem-1px)] bg-zinc-800 py-4 px-20">
+        <main className="min-h-[calc(100vh-4rem-1px)] bg-zinc-800 py-4 px-20">
           {children}
         </main>
       </body>
