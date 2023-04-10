@@ -7,7 +7,7 @@ async function getArticleBySlug(slug: string): Promise<Article> {
   if (!res.ok) notFound();
 
   const data = await res.json();
-  const article = data.article;
+  const article = data.article as Article;
 
   if (article === null) notFound();
   return article;
@@ -22,6 +22,7 @@ async function getCommentsByArticleId(articleId: Number): Promise<Comment[]> {
   return comments as Comment[];
 }
 
+// TODO: set loading (spinner) animation
 export default async function Article({
   params,
 }: {
