@@ -1,5 +1,5 @@
-import { getArticlBySlug } from "@/apis/articles";
-import { getAllCommentsBySlug } from "@/apis/comments";
+import { getArticleBySlug } from "@/apis/articles";
+import { getCommentsByArticleId } from "@/apis/comments";
 import React from "react";
 
 export default async function Article({
@@ -7,13 +7,8 @@ export default async function Article({
 }: {
   params: { slug: string };
 }) {
-  const articlePromise = getArticlBySlug(params.slug);
-  const commentPromise = getAllCommentsBySlug(params.slug);
-
-  const [article, comments] = await Promise.all([
-    articlePromise,
-    commentPromise,
-  ]);
+  const article = await getArticleBySlug(params.slug);
+  const comments = await getCommentsByArticleId(article.id);
 
   return (
     <div className="flex flex-col">
@@ -30,7 +25,7 @@ export default async function Article({
       <hr className="my-4 border-zinc-500" />
 
       <div className="py-4">
-        <p className="text-xl">{article.content}</p>
+        <pre className="text-xl">{article.content}</pre>
       </div>
 
       <hr className="my-4 border-zinc-500" />
