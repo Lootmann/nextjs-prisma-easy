@@ -1,23 +1,20 @@
 import { notFound } from "next/navigation";
-import prisma from "../lib/prisma";
+import { Article } from "@prisma/client";
 
 export const getAllArticles = async () => {
-  return await prisma.article.findMany();
+  const res = await fetch("http://localhost:3000/api/articles");
+  if (!res.ok) throw new Error("hoge");
+
+  const data = await res.json();
+  return data.articles as Article[];
 };
 
 export const getArticlBySlug = async (slug: string) => {
-  const article = await prisma.article.findFirst({
-    where: {
-      slug: slug,
-    },
-    include: {
-      author: true,
-    },
-  });
+  const res = await fetch(`http://localhost:3000/api/articles/${slug}`);
+  const data = await res.json();
+  const article = data.article;
 
-  if (article === null) {
-    notFound();
-  }
+  if (article === null) notFound();
 
   return article;
 };
