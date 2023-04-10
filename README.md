@@ -21,4 +21,7 @@ npm run dev
 
 - [x] api, apis 使い方おかしくね
   - きっちりおかしかったので全修正
-- [ ] Prisma Schema Relations
+- [x] Prisma Schema Relations
+  - Relation 先の Model は Prisma Schema だと生成されないとっぽい
+  - 使い物にならない Schema なので 別途 types を作成して使うことに
+  - なぜできないのか不明、恐らく可能だが検索しても見つからず
