@@ -14,4 +14,4 @@ npm run dev
 
 ## Links
 
-- [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers).
+- [API Router Handlers](https://beta.nextjs.org/docs/routing/route-handlers)

@@ -1,19 +1,8 @@
-import prisma from "../lib/prisma";
-import { getArticlBySlug } from "./articles";
+import { Comment } from "@prisma/client";
 
-export const getAllCommentsBySlug = async (slug: string) => {
-  const article = await getArticlBySlug(slug);
-  if (!article) throw new Error(`Article ${slug} is Not Found`);
+export const getCommentsByArticleId = async (articleId: number) => {
+  const res = await fetch(`http://localhost:3000/api/comments/${articleId}`);
+  const data = await res.json();
 
-  const atricleId = article.id;
-  const comments = await prisma.comment.findMany({
-    where: {
-      articleId: atricleId,
-    },
-    include: {
-      commentedBy: true,
-    },
-  });
-
-  return comments;
+  return data.comments as Comment[];
 };
