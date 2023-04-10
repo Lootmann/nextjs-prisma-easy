@@ -31,7 +31,11 @@ function slugify(title: string): string {
 }
 
 export async function GET(req: NextRequest) {
-  const articles = await prisma.article.findMany();
+  const articles = await prisma.article.findMany({
+    include: {
+      author: true,
+    },
+  });
   return NextResponse.json({ articles });
 }
 
