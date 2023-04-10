@@ -17,21 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${font.className}`}>
       <head />
 
-      <body
-        className={
-          font.className +
-          `flex flex-col min-h-screen bg-zinc-900 text-zinc-200`
-        }
-      >
+      <body className="flex flex-col h-full bg-zinc-900 text-zinc-200">
         <Header />
-
-        {/* Header height and border px */}
-        <main className="min-h-[calc(100vh-4rem-1px)] bg-zinc-800 py-4 px-20">
-          {children}
-        </main>
+        <main className="h-full flex-1 bg-zinc-800 py-4 px-20">{children}</main>
       </body>
     </html>
   );
