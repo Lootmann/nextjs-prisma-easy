@@ -1,7 +1,7 @@
 import { ArticleList } from "./articles/ArticleList";
 import { Article } from "@prisma/client";
 
-async function getArticles() {
+async function getArticles(): Promise<Article[]> {
   const res = await fetch("http://localhost:3000/api/articles", {
     cache: "no-store",
   });
@@ -12,7 +12,7 @@ async function getArticles() {
 }
 
 export default async function Home() {
-  const articles = await getArticles();
+  const articles = (await getArticles()) as Article[];
 
   return (
     <div className="flex flex-col gap-6">
