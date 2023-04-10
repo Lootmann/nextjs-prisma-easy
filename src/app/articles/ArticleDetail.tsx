@@ -17,10 +17,11 @@ export function ArticleDetail({ article }: { article: Article }) {
 
         <footer className="flex gap-6 items-baseline">
           <p className="text-zinc-400">
-            Created {article.createdAt.toLocaleString()}
+            Created {new Date(article.createdAt).toLocaleString()}
           </p>
+
           <p className="text-zinc-400">
-            Uptead {article.updatedAt.toLocaleString()}
+            Updated {new Date(article.updatedAt).toLocaleString()}
           </p>
         </footer>
       </div>

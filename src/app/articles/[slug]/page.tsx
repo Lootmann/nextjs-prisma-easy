@@ -1,4 +1,5 @@
-import { Article, Comment } from "@prisma/client";
+import { Article } from "@/types/articles";
+import { Comment } from "@/types/comments";
 import { notFound } from "next/navigation";
 import React from "react";
 
