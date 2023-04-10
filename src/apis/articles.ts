@@ -9,8 +9,9 @@ export const getAllArticles = async () => {
   return data.articles as Article[];
 };
 
-export const getArticlBySlug = async (slug: string) => {
+export const getArticleBySlug = async (slug: string) => {
   const res = await fetch(`http://localhost:3000/api/articles/${slug}`);
+  if (!res.ok) throw new Error("!getArticleBySlug");
   const data = await res.json();
   const article = data.article;
 
