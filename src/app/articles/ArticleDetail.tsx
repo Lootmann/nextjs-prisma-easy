@@ -1,7 +1,7 @@
-import { Article } from "@prisma/client";
 import Link from "next/link";
 import React from "react";
 import { StringHelper } from "../utils/strings";
+import { Article } from "@/types/articles";
 
 export function ArticleDetail({ article }: { article: Article }) {
   return (
@@ -17,6 +17,8 @@ export function ArticleDetail({ article }: { article: Article }) {
         <p className="text-xl">{StringHelper.truncate(article.content, 200)}</p>
 
         <footer className="flex gap-6 items-baseline">
+          <p className="text-zinc-400">Author@{article.author.name}</p>
+
           <p className="text-zinc-400">
             Created {new Date(article.createdAt).toLocaleString()}
           </p>
