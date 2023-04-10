@@ -2,9 +2,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
 
-export default async function CreateArticle() {
+export default function CreateArticle() {
   const router = useRouter();
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
@@ -12,7 +12,16 @@ export default async function CreateArticle() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    console.log(title, content);
+    await fetch("http://localhost:3000/api/articles", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title, content }),
+    });
+
+    router.push("/");
+    router.refresh();
   }
 
   return (
