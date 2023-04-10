@@ -39,8 +39,8 @@ export default async function Article({
 
         <div className="flex items-baseline gap-4">
           <p className="text-xl">Author: {article.author.name}</p>
-          <p>Created @ {article.createdAt.toLocaleString()}</p>
-          <p>Updated @ {article.updatedAt.toLocaleString()}</p>
+          <p>Created @ {new Date(article.createdAt).toLocaleString()}</p>
+          <p>Updated @ {new Date(article.updatedAt).toLocaleString()}</p>
         </div>
       </header>
 
