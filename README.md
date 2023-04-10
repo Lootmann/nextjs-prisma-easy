@@ -8,7 +8,8 @@ npm run dev
 
 ## Install
 
-- [x] tRPC
+- [ ] tRPC
+  - nextjs 専属の API + Prisma で十分使える?
 - [x] zod
 - [x] Prisma
 
@@ -18,4 +19,6 @@ npm run dev
 
 ## TODO
 
-- [ ] api, apis 使い方おかしくね
+- [x] api, apis 使い方おかしくね
+  - きっちりおかしかったので全修正
+- [ ] Prisma Schema Relations
