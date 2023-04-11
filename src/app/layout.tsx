@@ -1,6 +1,6 @@
-import { Header } from "./components/Header";
 import { Nunito } from "next/font/google";
 import "./globals.css";
+import { Header } from "./components/Header";
 
 export const metadata = {
   title: "Nextjs 13 test",
@@ -18,8 +18,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${font.className}`}>
-      <head />
-
       <body className="flex flex-col h-full bg-zinc-900 text-zinc-200">
         <Header />
         <main className="h-full flex-1 bg-zinc-800 py-4 px-20">{children}</main>
