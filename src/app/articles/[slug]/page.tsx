@@ -1,5 +1,6 @@
 import { Article } from "@/types/articles";
 import { Comment } from "@/types/comments";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -35,7 +36,10 @@ export default async function Article({
   return (
     <div className="flex flex-col">
       <header className="flex flex-col bg-zinc-800">
-        <h1 className="text-3xl mb-2">{article.title}</h1>
+        <div className="flex justify-between items-baseline pr-2 mb-4">
+          <h1 className="text-3xl mb-2">{article.title}</h1>
+          <Link href={`/articles/${params.slug}/edit`}>helloworld</Link>
+        </div>
 
         <div className="flex items-baseline gap-4">
           <p className="text-xl">Author: {article.author.name}</p>

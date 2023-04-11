@@ -1,5 +1,5 @@
+import { Article } from "@/types/articles";
 import { ArticleList } from "./articles/ArticleList";
-import { Article } from "@prisma/client";
 
 async function getArticles(): Promise<Article[]> {
   const res = await fetch("http://localhost:3000/api/articles", {

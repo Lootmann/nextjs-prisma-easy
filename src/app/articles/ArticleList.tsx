@@ -1,6 +1,6 @@
 import React from "react";
-import { Article } from "@prisma/client";
 import { ArticleDetail } from "./ArticleDetail";
+import { Article } from "@/types/articles";
 
 // NOTE:  JSX Component can't be async function!
 export function ArticleList({ articles }: { articles: Article[] }) {
